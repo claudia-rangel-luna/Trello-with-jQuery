@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Trello with jQuery</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Trello Board with jQuery</h1>
+        </div>
+    </div>
+    <section>
+        <div class="d-flex justify-content-center ">
+            <button id="button1" type="button" class="btn btn-primary border border-dark mr-3 mt-3 ml-3"> New Swimlane</button>
+        </div>
+    </section>
+    <div id="swimlanes"></div>
+    <script type="text/javascript">
+    
+
+    $('document').ready(function() {
+        $('button').on('click', function newSwimlane() {
+        	var swimlaneHeader = prompt('New swimlane name');
+
+        	var newSwimlane = $('<div class="swimlane"></div>');
+
+        	newSwimlane.append('<div class="swimlaneHeader">' + swimlaneHeader + '</div>');
+
+        	newSwimlane.append('<div class="buttons"><i class="fas fa-trash-alt icons"></i><i class="fas fa-pencil-alt icons"></i><i class="fas fa-plus icons"></i></div>');
+
+        	newSwimlane.append('<div class="cards"></div>');
+
+        	$('.fa-pencil-alt').on('click', function(){
+        		alert("pencil clicked");
+        	});
+
+            $('#swimlanes').append(newSwimlane);      
+        });
+    });
+
+   
+
+    </script>
+</body>
+
+</html>
